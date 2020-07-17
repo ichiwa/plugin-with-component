@@ -1,20 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <button v-on:click="onConfirm">confirm</button>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
 
-@Component({
-  components: {
-    HelloWorld
+@Component
+export default class App extends Vue {
+  onConfirm() {
+    this.$confirm({ text: "削除しますか？" })
+      .then(() => {
+        console.log("ok");
+      })
+      .catch(() => {
+        console.log("cancel");
+      });
   }
-})
-export default class App extends Vue {}
+}
 </script>
 
 <style lang="scss">

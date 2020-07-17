@@ -1,10 +1,5 @@
 import Vue, { PluginFunction } from "vue";
 
-declare module "*.vue" {
-  import Vue from "vue";
-  export default Vue;
-}
-
 export interface ConfirmProps {
   text: string;
 }
